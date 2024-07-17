@@ -103,6 +103,73 @@ public class Main
 [Slection,Bubble,Insertion](https://www.youtube.com/watch?v=HGk_ypEuS24&list=PLgUwDviBIf0oF6QL8m22w1hIDC1vJ_BHz&index=14)
 ### Merge Sort
 [Merge Sort](https://www.youtube.com/watch?v=ogjf7ORKfd8&list=PLgUwDviBIf0oF6QL8m22w1hIDC1vJ_BHz&index=15)
+```java
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    int n=sc.nextInt();
+	    int[] arr=new int[n];
+	    for(int i=0;i<n;i++) arr[i]=sc.nextInt();
+	    Merge_sort(arr,0,n-1);
+	    for(int i=0;i<n;i++) System.out.print(arr[i]+" ");
+	}
+	public static void Merge_sort(int[] arr,int low,int high){
+	    if(low>=high) return;
+	    int mid=(low+high)/2;
+	    Merge_sort(arr,low,mid);
+	    Merge_sort(arr,mid+1,high);
+	    Merge(arr,low,mid,high);
+	}
+	public static void Merge(int[] arr,int low,int mid,int high)
+	{
+	    ArrayList<Integer> temp=new ArrayList<>();
+	    int index=0;
+	    int left=low;
+	    int right=mid+1;
+	    while(left<=mid && right<=high)
+	    {
+	        if(arr[left]<arr[right])
+	        {
+	            temp.add(arr[left]);
+	            left++;
+	        }
+	        else{
+	            temp.add(arr[right]);
+	            right++;
+	        }
+	    }
+	    while(left<=mid)
+	    {
+	        temp.add(arr[left]);
+	        left++;
+	    }
+	    while(right<=high)
+	    {
+	        temp.add(arr[right]);
+	        right++;
+	    }
+	    for(int i=0;i<temp.size();i++) System.out.print(temp.get(i)+" ");
+	    System.out.println();
+	    for(int i=low;i<=high;i++)
+	    {
+	        arr[i]=temp.get(i-low);
+	    }
+	}
+}
+```
+#### Output
+<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/75702270-f6f1-4243-aeb3-ea7fa57dcddd">
+<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/4f48fd01-5311-4963-8c3a-905ceedc2274">
+
+- In the above output each merging and the final out put also shown.
+- TimeComplexity : N*(log N)
+- From the above image the original array will be separate into tow parts.
+- According to the recursive all left side will be execute first.
+- Whenever each separeted array reaches only one elemnt thet is if(low>=heigh) then it will return back.
+- so the array should sort and come back to that finally we copy th temporary array to the original array.
+
 
 
   
