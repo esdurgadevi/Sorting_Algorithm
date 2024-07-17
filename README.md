@@ -102,6 +102,7 @@ public class Main
     For Best Case : o(n)
 [Slection,Bubble,Insertion](https://www.youtube.com/watch?v=HGk_ypEuS24&list=PLgUwDviBIf0oF6QL8m22w1hIDC1vJ_BHz&index=14)
 ### Merge Sort
+[Merge Sort](https://www.youtube.com/watch?v=ogjf7ORKfd8&list=PLgUwDviBIf0oF6QL8m22w1hIDC1vJ_BHz&index=15)
 
 
   
