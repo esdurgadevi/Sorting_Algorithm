@@ -169,8 +169,28 @@ public class Main
 - According to the recursive all left side will be execute first.
 - Whenever each separeted array reaches only one elemnt thet is if(low>=heigh) then it will return back.
 - so the array should sort and come back to that finally we copy th temporary array to the original array.
-
-
-
+### Quick Sort Algorithm
+```c
+int partition(int arr[], int low, int high) {
+    int pivot = arr[high];
+    int i = low - 1;
+    for (int j = low; j <= high - 1; j++) {
+        if (arr[j] < pivot) {
+            i++;
+            swap(arr[i], arr[j]);
+        }
+    }
+    swap(arr[i + 1], arr[high]);
+    return i + 1;
+}
+void quickSort(int arr[], int low, int high)
+{
+    if (low < high) {
+        int pi = partition(arr, low, high);
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
+    }
+}
+```
   
   
